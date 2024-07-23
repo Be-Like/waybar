@@ -1,0 +1,81 @@
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+}
+
+/* @define-color bg #180029; */
+
+/* window#waybar {
+  background-color: transparent;
+}
+
+#workspaces > :not(:last-child) {
+  margin-right: 10px;
+}
+
+#workspaces button {
+  background-color: black;
+  color: #fff;
+}
+
+#workspaces button.active {
+  background-color: #3e016a;
+}
+
+.modules-left {
+  margin-left: 20px;
+}
+
+.modules-right {
+  margin-right: 20px;
+}
+
+.custom-spotify {
+  padding: 0 10px;
+  margin: 0 4px;
+  background-color: #1DB954;
+  color: black;
+} */
+
+window#waybar {
+	background-color: transparent;
+	color: #fff;
+}
+
+.modules-left {
+	/* background-color: #3e016a; */
+  background: linear-gradient(91.7deg, #180029 -4.3%, #3e016a 101.8%);
+	border-radius: 8px;
+	margin-left: 20px;
+	padding: 0 25px;
+}
+
+.modules-right {
+  background: linear-gradient(91.7deg, #3e016a -4.3%, #180029 101.8%);
+  /* 	background: linear-gradient(109.6deg, rgb(9, 9, 121) 11.2%, rgb(144, 6, 161) 53.7%, rgb(0, 212, 255) 100.2%); */
+  /* background-color: #3e016a; */
+	border-radius: 8px;
+	margin-right: 20px;
+  padding: 0 25px;
+}
+
+.modules-center {
+	background-color: #180029;
+  border-radius: 8px;
+	color: #fff;
+}
+
+#workspaces button {
+	color: #fff;
+}
+
+#workspaces button.active {
+	/* background-color: #3e016a; */
+  background: radial-gradient(circle at 52.1% -29.6%, rgb(144, 17, 105) 0%, rgb(51, 0, 131) 100.2%);
+  border-radius: 8px;
+}
+
+#workspaces button.hover {
+	background-color: red;
+}
