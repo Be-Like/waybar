@@ -1,198 +1,91 @@
-// -*- mode: jsonc -*-
 {
-    // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 34, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 5, // Waybar height (to be removed for auto height)
     "modules-left": [
-        "hyprland/window"
+        "custom/media",
+        "systemd-failed-units",
+        "hyprland/workspaces",
+        "hyprland/mode"
     ],
     "modules-center": [
-        "hyprland/workspaces"
+        "hyprland/window"
     ],
-    "hyprland/window": {
-        "max-length": 200,
-        "separate-outputs": true
-    },
     "modules-right": [
-        // "custom/media",
-        // "mpd",
-        // "idle_inhibitor",
-        // "mpris",
+        "temperature#cpu",
+        "temperature#gpu",
         "pulseaudio",
-        // "network",
-        // "cpu",
-        // "memory",
-        // "temperature",
-        // "keyboard-state",
+        "network",
+        "cpu",
+        "memory",
         "clock",
         "tray"
     ],
-
-    // "mpris": { // Option for media player
-	// 	"format": "{player_icon}",
-	// 	"format-paused": "{status_icon}",
-	// 	"player-icons": {
-	// 		"default": "",
-	// 		"mpv": "🎵"
-	// 	},
-	// 	"status-icons": {
-	// 		"paused": ""
-	// 	}
-	// 	// "ignored-players": ["firefox"]
-	// },
-    // Modules configuration
-    "hyprland/workspaces": {
-        // "disable-scroll": true,
-        // "all-outputs": true,
-        // "warp-on-scroll": false,
-        // "format": "{name}: {icon}",
-        // "format-icons": {
-        //     "1": "",
-        //     "2": "",
-        //     "3": "",
-        //     "4": "",
-        //     "5": "",
-        //     "urgent": "",
-        //     "focused": "",
-        //     "default": ""
-        // },
-        "persistent-workspaces": {
-            "DP-1": [9],
-            "DP-2": [1, 3, 4, 10],
-            "HDMI-A-1": [2]
-        },
-        "sort-by": "number",
-        "format": "{icon} {windows}",
-        "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "9": "",
-            "10": "",
-            "urgent": "",
-            "focused": "",
-            "default": ""
-        },
-        "window-rewrite-default": "",
-        "window-rewrite": {
-            "class<.*firefox.*>": "",
-            "class<.*code-url-handler.*>": "",
-            "class<.*jetbrains-webstorm.*>": "",
-            "class<.*jetbrains-rubymine.*>": "", // Not a great solution, but works. Check back once Wayland is implemented properly
-            "title<.*Spit.*>": "",
-            "title<.*Zoom Workplace.*>": "",
-            "class<kitty>": "",
-            "class<.*Spotify.*>": ""
-        }
+    "hyprland/mode": {
+        "format": "<span style=\"italic\">{}</span>"
     },
-    // "keyboard-state": {
-    //     "numlock": true,
-    //     "capslock": true,
-    //     "format": "{name} {icon}",
-    //     "format-icons": {
-    //         "locked": "",
-    //         "unlocked": ""
-    //     }
-    // },
-    // "mpd": {
-    //     "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-    //     "format-disconnected": "Disconnected ",
-    //     "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-    //     "unknown-tag": "N/A",
-    //     "interval": 5,
-    //     "consume-icons": {
-    //         "on": " "
-    //     },
-    //     "random-icons": {
-    //         "off": "<span color=\"#f53c3c\"></span> ",
-    //         "on": " "
-    //     },
-    //     "repeat-icons": {
-    //         "on": " "
-    //     },
-    //     "single-icons": {
-    //         "on": "1 "
-    //     },
-    //     "state-icons": {
-    //         "paused": "",
-    //         "playing": ""
-    //     },
-    //     "tooltip-format": "MPD (connected)",
-    //     "tooltip-format-disconnected": "MPD (disconnected)"
-    // },
-    // "idle_inhibitor": {
-    //     "format": "{icon}",
-    //     "format-icons": {
-    //         "activated": "",
-    //         "deactivated": ""
-    //     }
-    // },
     "tray": {
-        // "icon-size": 21,
         "spacing": 10
     },
     "clock": {
-        // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
     },
-    // "cpu": {
-    //     "format": "{usage}% ",
-    //     "tooltip": false
-    // },
-    // "memory": {
-    //     "format": "{}% "
-    // },
-    // "temperature": {
-    //     // "thermal-zone": 2,
-    //     // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-    //     "critical-threshold": 80,
-    //     // "format-critical": "{temperatureC}°C {icon}",
-    //     "format": "{temperatureC}°C {icon}",
-    //     "format-icons": ["", "", ""]
-    // },
-    // "network": {
-    //     // "interface": "wlp2*", // (Optional) To force the use of this interface
-    //     "format-wifi": "{essid} ({signalStrength}%) ",
-    //     "format-ethernet": "{ipaddr}/{cidr} ",
-    //     "tooltip-format": "{ifname} via {gwaddr} ",
-    //     "format-linked": "{ifname} (No IP) ",
-    //     "format-disconnected": "Disconnected ⚠",
-    //     "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    // },
+    "cpu": {
+        "interval": 10,
+        "format": "CPU: {usage}%"
+    },
+    "memory": {
+        "format": "RAM: {percentage}% "
+    },
+    "temperature#cpu": {
+        "module": "temperature",
+        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input",
+        "critical-threshold": 80,
+        "format": "CPU: {temperatureC}°C",
+        "tooltip": false
+    },
+    "temperature#gpu": {
+        "module": "temperature",
+        "hwmon-path": "/sys/devices/pci0000:00/0000:00:08.1/0000:0d:00.0/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        "format": "GPU: {temperatureC}°C",
+        "tooltip": false
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interfac
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
+        "format": "{volume}%  {format_source}",
+        "format-bluetooth": "{volume}%  {format_source}",
+        "format-bluetooth-muted": " {format_source}",
         "format-muted": " {format_source}",
         "format-source": "{volume}% ",
         "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
         "on-click": "pavucontrol"
     },
-    // "custom/media": {
-    //     "format": "{icon} {}",
-    //     "return-type": "json",
-    //     "max-length": 40,
-    //     "format-icons": {
-    //         "spotify": "",
-    //         "default": "🎜"
-    //     },
-    //     "escape": true,
-    //     // "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-    //     "exec": "/usr/bin/python3 $HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    // }
+    "custom/media": {
+        "format": "{}",
+        "escape": true,
+        "return-type": "json",
+        "max-length": 40,
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl stop",
+        "smooth-scrolling-threshold": 3, // This value was tested using a trackpad, it should be lowered if using a mouse.
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources/custom_modules folder
+    },
+    "systemd-failed-units": {
+        "hide-on-ok": true, // Do not hide if there is zero failed units.
+        "format": "✗ {nr_failed}",
+        "format-ok": "",
+        "system": true, // Monitor failed systemwide units.
+        "user": false // Ignore failed user units.
+    }
 }
