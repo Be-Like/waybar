@@ -87,5 +87,10 @@
         "format-ok": "",
         "system": true, // Monitor failed systemwide units.
         "user": false // Ignore failed user units.
+    },
+    "custom/qmk_layer": {
+	    "format": "Layer: {}",
+	    "exec": "cat /tmp/qmk_layer || echo -",
+	    "interval": 1
     }
 }
